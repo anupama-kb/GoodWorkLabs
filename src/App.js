@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import flexiConfig from './flexiConfig'
+import Flexi from './flexi'
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.onFlexiSubmit = this.onFlexiSubmit.bind(this);
+  }
+  onFlexiSubmit(e, attributes) {
+    console.log("personName", attributes.title)
+    console.log("personState", attributes.selectedValue)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Flexi onFlexiSubmit={this.onFlexiSubmit} config={flexiConfig} />
+      </div>
+    )
+  }
 }
+
+
 
 export default App;
